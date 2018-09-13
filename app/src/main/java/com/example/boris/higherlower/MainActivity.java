@@ -1,6 +1,7 @@
 package com.example.boris.higherlower;
 
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
         mLowerGuess.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
                 currentImageIndex = newDiceThrow();
-                countScore();
+                countLowerScore();
                 mImageView.setImageResource(mImageNames[currentImageIndex]);
             }
         });
@@ -56,24 +58,39 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentImageIndex = newDiceThrow();
-                countScore();
+                countHigherScore();
                 mImageView.setImageResource(mImageNames[currentImageIndex]);
             }
         });
     }
 
     public int newDiceThrow(){
-        int newNumber = 0;
-        newNumber = (int)((Math.random() * 6) +1);
+        int newNumber = (int)((Math.random() * 6) +1);
         return newNumber;
     }
 
-    public int countScore(){
-        if (mNextGuess){
+
+
+    public void countLowerScore(){
+        if (newDiceThrow() < currentImageIndex){
             mCurrentScore++;
+            Snackbar.make(mImageView, "Correct", Snackbar.LENGTH_SHORT).setAction("Action",null).show();
         } else {
+            Snackbar.make(mImageView, "Wrong", Snackbar.LENGTH_SHORT).setAction("Action",null).show();
             mCurrentScore = 0;
         }
-        return mCurrentScore;
+
     }
+
+    public void countHigherScore(){
+        if (newDiceThrow() > currentImageIndex){
+            mCurrentScore++;
+            Snackbar.make(mImageView, "Correct", Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+        } else {
+            Snackbar.make(mImageView, "Wrong", Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+            mCurrentScore = 0;
+        }
+    }
+
+
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/scoreView"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="55dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/score"
+        app:layout_constraintBottom_toTopOf="@+id/throwView"
+        app:layout_constraintEnd_toEndOf="@+id/highscoreView"
+        app:layout_constraintStart_toStartOf="@+id/highscoreView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/highscoreView"
+        android:layout_width="161dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/highscore"
+        app:layout_constraintBottom_toTopOf="@+id/throwView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreView" />
+
+    <ImageView
+        android:id="@+id/imageViewDices"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="13dp"
+        android:contentDescription="@string/diceImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/higherGuessBtn"
+        app:layout_constraintStart_toEndOf="@+id/lowerGuessBtn"
+        app:layout_constraintTop_toBottomOf="@+id/throwView"
+        app:srcCompat="@drawable/d3" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/lowerGuessBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginStart="31dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDices"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/higherGuessBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="29dp"
+        android:layout_marginTop="108dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDices"
+        app:layout_constraintTop_toBottomOf="@+id/throwView"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <ListView
+        android:id="@+id/throwView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="228dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreView" />
+</android.support.constraint.ConstraintLayout>
